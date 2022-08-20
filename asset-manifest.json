@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/apexstat/player-statistic/static/css/main.f8435d12.css",
-    "main.js": "/apexstat/player-statistic/static/js/main.d4d84dc9.js",
+    "main.js": "/apexstat/player-statistic/static/js/main.857f78b6.js",
     "static/js/787.cfc2c4f1.chunk.js": "/apexstat/player-statistic/static/js/787.cfc2c4f1.chunk.js",
     "static/media/valk.svg": "/apexstat/player-statistic/static/media/valk.99d31a6617d3d92fded5.svg",
     "index.html": "/apexstat/player-statistic/index.html",
     "main.f8435d12.css.map": "/apexstat/player-statistic/static/css/main.f8435d12.css.map",
-    "main.d4d84dc9.js.map": "/apexstat/player-statistic/static/js/main.d4d84dc9.js.map",
+    "main.857f78b6.js.map": "/apexstat/player-statistic/static/js/main.857f78b6.js.map",
     "787.cfc2c4f1.chunk.js.map": "/apexstat/player-statistic/static/js/787.cfc2c4f1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f8435d12.css",
-    "static/js/main.d4d84dc9.js"
+    "static/js/main.857f78b6.js"
   ]
 }
