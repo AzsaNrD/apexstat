@@ -3,7 +3,7 @@ import { getRemainingTimeUntilMsTimestamp } from "../Utils/CountdownTimerUtils"
 
 const defaultRemainingTime = {
   seconds: "end",
-  minutes: "00",
+  minutes: "end",
   hours: "00",
   days: "00",
 }
@@ -39,7 +39,7 @@ const CountdownTimer = ({ countdownTimesMs }) => {
             </div>
           )}
 
-          {remainingTime.minutes !== "00" && (
+          {remainingTime.minutes !== "end" && (
             <div className="flex gap-1">
               <span className="two-numbers">{remainingTime.minutes}</span>
               <span>Minutes</span>

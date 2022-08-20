@@ -6,7 +6,7 @@ export function getRemainingTimeUntilMsTimestamp(timestampMs) {
   if (timestampDayjs.isBefore(nowDayJs)) {
     return {
       seconds: "end",
-      minutes: "00",
+      minutes: "end",
       hours: "00",
       days: "00",
     }
