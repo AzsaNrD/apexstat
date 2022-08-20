@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react"
+import { Triangle } from "react-loader-spinner"
 import NewsCard from "./NewsCard"
 import axios from "axios"
-import { useEffect, useState } from "react"
 
 const News = () => {
   const [news, setNews] = useState([])
+  const [loading, setLoading] = useState(true)
   const [isDataFound, setIsDataFound] = useState(false)
 
   useEffect(() => {
@@ -14,13 +16,22 @@ const News = () => {
       .then((response) => {
         setNews(response.data)
         setIsDataFound(true)
+        setTimeout(() => {
+          setLoading(false)
+        }, 3000)
       })
       .catch((err) => {
         console.log(err)
       })
   }, [])
 
-  return (
+  return loading ? (
+    <div className="h-screen relative">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y- animate-pulse">
+        <Triangle color="#f8fafc" />
+      </div>
+    </div>
+  ) : (
     isDataFound && (
       <div className="mt-40 md:mt-44 mb-10">
         <div className="text-center flex justify-center">

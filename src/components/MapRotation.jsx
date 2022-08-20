@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react"
-import axios from "axios"
+import { Triangle } from "react-loader-spinner"
 import CountdownTimer from "./CountdownTimer"
+import axios from "axios"
 
 const MapRotation = () => {
   const [br, setBr] = useState(null)
   const [brRanked, setBrRanked] = useState(null)
   const [arenas, setArenas] = useState(null)
   const [arenasRanked, setArenasRanked] = useState(null)
+  const [loading, setLoading] = useState(true)
   const [isDataFound, setIsDataFound] = useState(false)
 
   useEffect(() => {
@@ -20,13 +22,22 @@ const MapRotation = () => {
         setArenas(response.data.arenas)
         setArenasRanked(response.data.arenas)
         setIsDataFound(true)
+        setTimeout(() => {
+          setLoading(false)
+        }, 3000)
       })
       .catch((err) => {
         console.log(err)
       })
   }, [])
 
-  return (
+  return loading ? (
+    <div className="h-screen relative">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y- animate-pulse">
+        <Triangle color="#f8fafc" />
+      </div>
+    </div>
+  ) : (
     isDataFound && (
       <div className="mt-40 md:mt-44 mb-10">
         <div className="text-center flex justify-center">
