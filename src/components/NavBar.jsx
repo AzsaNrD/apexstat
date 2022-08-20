@@ -31,7 +31,7 @@ const NavBar = () => {
           <ul className="block md:flex">
             <li className="group py-2 md:py-0 md:px-5">
               <NavLink
-                to="/"
+                to="apexstat"
                 className="text-[#cbc8c8] hover:text-[#f8fafc] transition duration-300"
               >
                 PLAYER STATISTIC

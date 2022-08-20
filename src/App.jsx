@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false)
-    }, 5000)
+    }, 10000)
   }, [])
 
   return loading ? (
@@ -31,7 +31,7 @@ function App() {
         <NavBar />
       </div>
       <Routes>
-        <Route path="/" element={<PlayerStatistic />} />
+        <Route path="apexstat" element={<PlayerStatistic />} />
         <Route path="map-rotation" element={<MapRotation />} />
         <Route path="news" element={<News />} />
       </Routes>
