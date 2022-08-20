@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/apexstat/static/css/main.1b37e843.css",
+    "main.js": "/apexstat/static/js/main.3d6cace5.js",
+    "static/js/787.cfc2c4f1.chunk.js": "/apexstat/static/js/787.cfc2c4f1.chunk.js",
+    "static/media/valk.svg": "/apexstat/static/media/valk.99d31a6617d3d92fded5.svg",
+    "index.html": "/apexstat/index.html",
+    "main.1b37e843.css.map": "/apexstat/static/css/main.1b37e843.css.map",
+    "main.3d6cace5.js.map": "/apexstat/static/js/main.3d6cace5.js.map",
+    "787.cfc2c4f1.chunk.js.map": "/apexstat/static/js/787.cfc2c4f1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b37e843.css",
+    "static/js/main.3d6cace5.js"
+  ]
+}
