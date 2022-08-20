@@ -39,7 +39,7 @@ const NavBar = () => {
             </li>
             <li className="group py-2 md:py-0 md:px-5">
               <NavLink
-                to="/map-rotation"
+                to="apexstat/map-rotation"
                 className="text-[#cbc8c8] hover:text-[#f8fafc] transition duration-300"
               >
                 MAP ROTATION
@@ -47,7 +47,7 @@ const NavBar = () => {
             </li>
             <li className="group py-2 md:py-0 md:px-5">
               <NavLink
-                to="/news"
+                to="apexstat/news"
                 className="text-[#cbc8c8] hover:text-[#f8fafc] transition duration-300"
               >
                 NEWS
