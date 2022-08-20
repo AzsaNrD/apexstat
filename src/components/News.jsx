@@ -13,7 +13,6 @@ const News = () => {
       )
       .then((response) => {
         setNews(response.data)
-        setIsLoading(true)
         setIsDataFound(true)
       })
       .catch((err) => {

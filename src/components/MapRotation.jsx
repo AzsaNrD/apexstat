@@ -19,7 +19,6 @@ const MapRotation = () => {
         setBrRanked(response.data.ranked)
         setArenas(response.data.arenas)
         setArenasRanked(response.data.arenas)
-        setIsLoading(true)
         setIsDataFound(true)
       })
       .catch((err) => {
