@@ -15,7 +15,7 @@ function App() {
         <NavBar />
       </div>
       <Routes>
-        <Route path="/" element={<PlayerStatistic />} />
+        <Route path="apexstat" element={<PlayerStatistic />} />
         <Route path="news" element={<News />} />
         <Route path="map-rotation" element={<MapRotation />} />
       </Routes>
