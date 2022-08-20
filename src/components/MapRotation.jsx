@@ -38,7 +38,7 @@ const MapRotation = () => {
           {isDataFound && (
             <div className="mt-10 text-slate-300 text-center grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="relative group">
-                <div className="h-60 rounded-sm shadow-md shadow-neutral-800 overflow-hidden">
+                <div className="h-60 rounded-sm shadow-md shadow-neutral-800 overflow-hidden bg-gradient-to-tr from-[#3F3F3F] to-[#474747]">
                   <img
                     className="object-cover h-60 w-full group-hover:scale-105 transition duration-300"
                     src={brRanked.current.asset}
@@ -56,7 +56,7 @@ const MapRotation = () => {
                 </div>
               </div>
               <div className="relative group">
-                <div className="h-60 rounded-sm shadow-md shadow-neutral-800 overflow-hidden">
+                <div className="h-60 rounded-sm shadow-md shadow-neutral-800 overflow-hidden bg-gradient-to-tr from-[#3F3F3F] to-[#474747]">
                   <img
                     className="object-cover h-60 w-full group-hover:scale-105 transition duration-300"
                     src={br.current.asset}
@@ -72,7 +72,7 @@ const MapRotation = () => {
                 </div>
               </div>
               <div className="relative group">
-                <div className="h-60 rounded-sm shadow-md shadow-neutral-800 overflow-hidden">
+                <div className="h-60 rounded-sm shadow-md shadow-neutral-800 overflow-hidden bg-gradient-to-tr from-[#3F3F3F] to-[#474747]">
                   <img
                     className="object-cover h-60 w-full group-hover:scale-105 transition duration-300"
                     src={arenas.current.asset}
@@ -90,7 +90,7 @@ const MapRotation = () => {
                 </div>
               </div>
               <div className="relative group">
-                <div className="h-60 rounded-sm shadow-md shadow-neutral-800 overflow-hidden">
+                <div className="h-60 rounded-sm shadow-md shadow-neutral-800 overflow-hidden bg-gradient-to-tr from-[#3F3F3F] to-[#474747]">
                   <img
                     className="object-cover h-60 w-full group-hover:scale-105 transition duration-300"
                     src={arenasRanked.current.asset}
