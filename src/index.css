@@ -1,13 +1,68 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  @apply bg-[#272828] relative;
+}
+
+nav li a.active {
+  color: #f8fafc;
+}
+
+.hamburger-line {
+  @apply w-[30px] h-[2px] block bg-[#EBEBEB] my-2;
+}
+
+.hamburger-active > span:nth-child(1) {
+  @apply rotate-45;
+}
+
+.hamburger-active > span:nth-child(2) {
+  @apply scale-0;
+}
+
+.hamburger-active > span:nth-child(3) {
+  @apply -rotate-45;
+}
+
+.svg {
+  @apply fill-slate-500 hover:fill-slate-700 transition duration-300;
+}
+
+.svg__active {
+  @apply fill-slate-700;
+}
+
+.loading-animation {
+  background-size: 200%;
+  animation: background 5s ease-in-out infinite;
+}
+
+.two-numbers {
+  width: 2ch;
+}
+
+@keyframes background {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 640px) {
+  .background-position-vk {
+    background-position: 75%;
+  }
 }
