@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Routes, Route } from "react-router-dom"
-import { Triangle } from "react-loader-spinner"
+import { ThreeDots } from "react-loader-spinner"
 import NavBar from "./components/NavBar"
 import PlayerStatistic from "./components/PlayerStatistic"
 import MapRotation from "./components/MapRotation"
@@ -14,13 +14,13 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false)
-    }, 10000)
+    }, 5000)
   }, [])
 
   return loading ? (
     <div className="h-screen relative">
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y- animate-pulse">
-        <Triangle color="#f8fafc" />
+        <ThreeDots color="#f8fafc" />
       </div>
     </div>
   ) : (

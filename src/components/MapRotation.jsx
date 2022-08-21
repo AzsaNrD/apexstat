@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Triangle } from "react-loader-spinner"
+import { ThreeDots } from "react-loader-spinner"
 import CountdownTimer from "./CountdownTimer"
 import axios from "axios"
 
@@ -34,7 +34,7 @@ const MapRotation = () => {
   return loading ? (
     <div className="h-screen relative">
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y- animate-pulse">
-        <Triangle color="#f8fafc" />
+        <ThreeDots color="#f8fafc" />
       </div>
     </div>
   ) : (
