@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { ThreeDots } from "react-loader-spinner"
 import NewsCard from "./NewsCard"
 import axios from "axios"
+import Loaders from "./Loaders"
 
 const News = () => {
   const [news, setNews] = useState([])
@@ -9,28 +9,32 @@ const News = () => {
   const [isDataFound, setIsDataFound] = useState(false)
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.mozambiquehe.re/news?auth=${process.env.REACT_APP_API_KEY}`
-      )
-      .then((response) => {
-        setNews(response.data)
-        setIsDataFound(true)
-        setTimeout(() => {
-          setLoading(false)
-        }, 3000)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    let isFetching = false
+    setTimeout(() => {
+      if (isFetching === false) {
+        setLoading(true)
+        axios({
+          method: "GET",
+          url: `https://api.mozambiquehe.re/news?auth=${process.env.REACT_APP_API_KEY}`,
+        })
+          .then((response) => {
+            setNews(response.data)
+            setIsDataFound(true)
+          })
+          .catch((err) => console.log("error", err))
+          .finally(() => {
+            setLoading(false)
+          })
+      }
+    }, 2000)
+
+    return () => {
+      isFetching = true
+    }
   }, [])
 
   return loading ? (
-    <div className="h-screen relative">
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y- animate-pulse">
-        <ThreeDots color="#f8fafc" />
-      </div>
-    </div>
+    <Loaders />
   ) : (
     isDataFound && (
       <div className="mt-40 md:mt-44 mb-10">

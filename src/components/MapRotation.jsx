@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
-import { ThreeDots } from "react-loader-spinner"
 import CountdownTimer from "./CountdownTimer"
 import axios from "axios"
+import Loaders from "./Loaders"
 
 const MapRotation = () => {
   const [br, setBr] = useState(null)
@@ -10,33 +10,48 @@ const MapRotation = () => {
   const [arenasRanked, setArenasRanked] = useState(null)
   const [loading, setLoading] = useState(true)
   const [isDataFound, setIsDataFound] = useState(false)
+  const [getRefreshTime, setRefreshTime] = useState(true)
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.mozambiquehe.re/maprotation?version=2&auth=${process.env.REACT_APP_API_KEY}`
-      )
-      .then((response) => {
-        setBr(response.data.battle_royale)
-        setBrRanked(response.data.ranked)
-        setArenas(response.data.arenas)
-        setArenasRanked(response.data.arenas)
-        setIsDataFound(true)
-        setTimeout(() => {
+    let isFetching = false
+
+    if (isFetching === false) {
+      setLoading(true)
+      axios({
+        method: "GET",
+        url: `https://api.mozambiquehe.re/maprotation?version=2&auth=${process.env.REACT_APP_API_KEY}`,
+      })
+        .then((response) => {
+          setBr(response.data.battle_royale)
+          setBrRanked(response.data.ranked)
+          setArenas(response.data.arenas)
+          setArenasRanked(response.data.arenasRanked)
+          setIsDataFound(true)
+        })
+        .catch((err) => console.log("error", err.response.data.Error))
+        .finally(() => {
           setLoading(false)
-        }, 3000)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [])
+          setRefreshTime(false)
+        })
+    }
+
+    return () => {
+      isFetching = true
+    }
+  }, [getRefreshTime])
+
+  const handleTime = (props) => {
+    setIsDataFound(false)
+    setLoading(true)
+    console.log("timeout 1s")
+    setTimeout(() => {
+      setRefreshTime(!props)
+      console.log("data berhasil di refresh...")
+    }, 1000)
+  }
 
   return loading ? (
-    <div className="h-screen relative">
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y- animate-pulse">
-        <ThreeDots color="#f8fafc" />
-      </div>
-    </div>
+    <Loaders />
   ) : (
     isDataFound && (
       <div className="mt-40 md:mt-44 mb-10">
@@ -63,6 +78,8 @@ const MapRotation = () => {
                   </p>
                   <CountdownTimer
                     countdownTimesMs={brRanked.current.end * 1000}
+                    getRefreshTime={getRefreshTime}
+                    handleTime={handleTime}
                   />
                 </div>
               </div>
@@ -79,7 +96,11 @@ const MapRotation = () => {
                   <p className="uppercase text-xl font-bold">
                     {br.current.map}
                   </p>
-                  <CountdownTimer countdownTimesMs={br.current.end * 1000} />
+                  <CountdownTimer
+                    countdownTimesMs={br.current.end * 1000}
+                    getRefreshTime={getRefreshTime}
+                    handleTime={handleTime}
+                  />
                 </div>
               </div>
               <div className="relative group">
@@ -97,6 +118,8 @@ const MapRotation = () => {
                   </p>
                   <CountdownTimer
                     countdownTimesMs={arenas.current.end * 1000}
+                    getRefreshTime={getRefreshTime}
+                    handleTime={handleTime}
                   />
                 </div>
               </div>
@@ -115,6 +138,8 @@ const MapRotation = () => {
                   </p>
                   <CountdownTimer
                     countdownTimesMs={arenasRanked.current.end * 1000}
+                    getRefreshTime={getRefreshTime}
+                    handleTime={handleTime}
                   />
                 </div>
               </div>

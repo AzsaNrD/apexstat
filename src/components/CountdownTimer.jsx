@@ -8,7 +8,7 @@ const defaultRemainingTime = {
   days: "00",
 }
 
-const CountdownTimer = ({ countdownTimesMs }) => {
+const CountdownTimer = ({ countdownTimesMs, getRefreshTime, handleTime }) => {
   const [remainingTime, setRemainingTime] = useState(defaultRemainingTime)
 
   useEffect(() => {
@@ -20,6 +20,11 @@ const CountdownTimer = ({ countdownTimesMs }) => {
 
   function updateRemainingTime(countdown) {
     setRemainingTime(getRemainingTimeUntilMsTimestamp(countdown))
+  }
+
+  if (remainingTime.seconds === "reset") {
+    console.log("mengirim request reset...")
+    handleTime(getRefreshTime)
   }
 
   return (
@@ -53,7 +58,7 @@ const CountdownTimer = ({ countdownTimesMs }) => {
           )}
         </div>
       ) : (
-        <p className="animate-pulse uppercase">Map has rotated. Refresh Page</p>
+        <p className="animate-pulse uppercase">Map has rotated</p>
       )}
     </div>
   )
